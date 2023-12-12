@@ -17,9 +17,11 @@
             <span class="block text-sm text-pink-600 truncate ">{{Auth::user()->email}}</span>
           </div>
           <ul class="py-2 text-pink-600" aria-labelledby="user-menu-button">
+            @if(Auth::user()->role == 'admin')
             <li>
-              <a href="#" class="block px-4 py-2 text-sm  hover:bg-gray-200  hover:text-pink-500">Dashboard</a>
+              <a href="{{route('dashboard')}}" class="block px-4 py-2 text-sm  hover:bg-gray-200  hover:text-pink-500">Dashboard</a>
             </li>
+            @endif
             <li>
               <a href="{{route('profile.edit')}}" class="block px-4 py-2 text-sm  hover:bg-gray-200  hover:text-pink-500">Settings</a>
             </li>
